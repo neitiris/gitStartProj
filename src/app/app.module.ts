@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {ApproutingModule} from './approuting.module';
@@ -21,6 +22,7 @@ import { UnknownComponent } from './pages/unknown/unknown.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ApproutingModule
   ],
   providers: [],

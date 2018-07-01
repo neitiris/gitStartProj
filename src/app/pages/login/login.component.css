@@ -1,0 +1,24 @@
+body{
+  background: #2c3e50;
+}
+form, input, button{
+  border-radius: 6px;
+}
+.lInput{
+  margin-bottom: 4px;
+}
+input{
+  height: 30px;
+  width: 240px;
+  font-size: 120%;
+  padding-left: 15px;
+}
+button{
+  margin-top: 10px;
+  height: 40px;
+  width: 90px;
+  font-size: 120%;
+  background: aquamarine;
+  border: none;
+  box-shadow: #2c3e50;
+}

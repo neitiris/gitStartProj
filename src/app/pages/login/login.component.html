@@ -1,5 +1,11 @@
 <div class="login">
-  <form action="">
-
+  <form
+    #signinForm
+    class="login-form">
+    <h1>Site Idea</h1>
+    <h2>Sing in</h2>
+    <input type="email" class="lInput" [(ngModel)]="user.email"  placeholder="Email" name="email">
+    <input type="password" class="lInput" [(ngModel)]="user.password" placeholder="Password" name="password">
+    <button class="submit" (click)="authenticate(user)">Sign In</button>
   </form>
 </div>
