@@ -1,0 +1,195 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: #16a085;
+}
+div h3, .categories h3{
+  padding-bottom: 16px;
+  border-bottom: 1px dotted saddlebrown;
+}
+.container{
+  width: 50%;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin: 0 auto;
+  background: white;
+}
+.categories ul{
+  margin-top: 4px;
+}
+#topLine1, #topLine3{
+  display: inline-flex;
+  background: orangered;
+  width: 100%;
+  font-size: 80%;
+}
+#topLine1, #topLine1 a{
+  color: white;
+  text-decoration: none;
+}
+#topLine1 p{
+  padding-left: 8px;
+}
+#topLine2{
+  display: inline-flex;
+  width: 100%;
+}
+#topLine4{
+  margin-bottom: 4px;
+  height: 34px;
+}
+#topLine4 img{
+  height: 30px;
+  width: 120px;
+  align-items: center;
+}
+#topLine4 p{
+  padding: 0;
+  margin: 0;
+  font-size: 110%;
+  width: 100%;
+  background: gray;
+}
+.line li{
+  display: inline-flex;
+}
+.line li a{
+  padding-right: 4px;
+  padding-left: 4px;
+}
+.line{
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+.line, #topLine1 p{
+  margin: 4px 0 8px 0;
+  text-decoration: none;
+}
+.line2{
+  display: inherit;
+  text-decoration: none;
+  list-style: none;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.line2 li a{
+  list-style: none;
+  height: 22px;
+  color: white;
+  text-decoration: none;
+  border-right: 0.1px solid #bdc3c7;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.contact{
+  margin-left: auto;
+}
+.contact p{
+  padding: 0;
+  margin:  0;
+  font-size: 70%;
+}
+#threeColums{
+  display: flex;
+}
+.column1, .column3{
+  width: 20%;
+}
+.column2{
+  width: 60%;
+}
+.column1 div, .column2 div, .column3 div{
+  border: 1px solid #2c3e50;
+  margin-bottom: 4px;
+  padding-left: 5px;
+  background: #fdf0e8;
+  box-shadow: #2c3e50;
+}
+.column1 div a, .column2 div a, .column3 div a{
+  font-size: 90%;
+  text-align: center;
+}
+.column1 div img, .column2 div img, .column3 div img{
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+}
+#bottom{
+  margin-top: 20px;
+  height: 120px;
+  background: orangered;
+  width: 100%;
+}
+.categories{
+  display: block;
+  border: 1px solid gray;
+  padding-left: 5px;
+}
+.categories h3{
+  padding-bottom: 3px;
+}
+.categories ul{
+  text-decoration: none;
+  list-style: none;
+  padding: 7px;
+  font-size: 91%;
+}
+.image img{
+  width: 100%;
+  height: 100%;
+}
+.image{
+  background-image: url(https://st3.depositphotos.com/10800906/13568/v/1600/depositphotos_135685894-stock-illustration-square-uk-flag.jpg) !important;
+  background-size: 100% !important;
+  height: 149px;
+  width: 96%;
+}
+#div4{
+  height: 171px;
+
+}
+#div4 img{
+  width: 100%;
+}
+.featured, .popular{
+  text-align: center;
+}
+.contact{
+  margin-top: 14px;
+}
+.search{
+  margin-top: 5px;
+ margin-left: auto;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+.bucket{
+  margin-top: 3px;
+  margin-left: auto;
+  padding-right: 4px;
+}
+.bMenu, .bImg{
+  display: inline-flex;
+  font-size: 70%;
+}
+.bImg{
+  margin-left: 4px;
+  margin-top: 6px;
+}
+.bMenu{
+  margin-left: 286px;;
+}
+.copyright{
+  float: right;
+}
+.categories > a{
+  color: black;
+  text-decoration: none;
+}
+li ul{
+  padding: 0;
+}
