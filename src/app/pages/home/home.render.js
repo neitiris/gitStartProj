@@ -1,9 +1,9 @@
+
 $(function() {
   function centerMenu(){
-    var center = $('#categ');
-    for (var i = 0; i < senter.length; i++)
-    {
-    center.append('<a href="' + categoryItems[i].href + '">' + categoryItems[i].name + '</a>')
+    let centerVar = $('#column2');
+    for (var i = 0; i < centerItems.length; i++){
+    centerVar.append('<a href="' + centerItems[i].href + '">' + '<img src="centerItems[0].img" alt="">' + centerItems[i].text + '</a>' + centerItems[i].cost)
     }
   }
   centerMenu()

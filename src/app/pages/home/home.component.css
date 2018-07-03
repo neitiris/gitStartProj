@@ -16,6 +16,17 @@ div h3, .categories h3{
   margin: 0 auto;
   background: white;
 }
+.lineCenter1{
+  display: flex;
+}
+.block{
+  display: inline-flex;
+  height: 250px;
+  width: 32%;
+}
+.block a{
+  height: 85%;
+}
 .categories ul{
   margin-top: 4px;
 }
