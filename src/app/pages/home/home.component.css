@@ -174,8 +174,15 @@ div h3, .categories h3{
   width: 200px;
   height: 200px;
 }
-.slide{
+.sliderBox{
   display: inline-flex;
+  justify-content: center;
+
+}
+
+.sliderContent{
+  display: inline-flex;
+  position: relative;
   top: 0px;
   left: 0px;
   width: 514px;
@@ -187,15 +194,10 @@ div h3, .categories h3{
 #div4 button{
   width: 20px;
   height: 82.5%;
-  margin-top: 22px;
+  margin-top: 30px;
 }
 .slide .slideBox{
   width: auto;
-}
-.slideBox{
-  display: inline-flex;
-  justify-content: center;
-
 }
 #topLine2 img{
   height: 61px;
@@ -344,4 +346,32 @@ li ul{
   font-size: 1.4em;
   font-family: Arial, sans-serif;
   line-height: 1.3;
+}
+
+.slider-box {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  margin-top: 20px;
+  padding: 0;
+  overflow: hidden;
+  /*height: 500px;*/
+  width: 70%;
+}
+.slider-content {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .2s ease;
+  /*height: 500px;*/
+  width: 2000px;
+}
+.slider-content a {
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  /*height: 480px;*/
+  width: auto;
+  vertical-align: top;
 }

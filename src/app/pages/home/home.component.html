@@ -45,18 +45,30 @@
         <button>Go</button>
       </div>
     </div>
-    <div id="div4">
-      <button class="previous">'<'</button>
-      <div class="slide">
+    <!--     <div id="div4">
+          <button class="previous" (click)="myFunctionminus()">'<'</button>
+          <div class="sliderBox">
+            <div class="sliderContent">
+              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
+              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
+              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
+            </div>
+          </div>
+          <button class="next" (click)="myFunctionplus()">'>'</button>
+        </div> -->
 
-        <div class="slideBox">
-          <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
-          <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
-          <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
+    <div id="div4">
+      <button class="previous" (click)="slideTo('left')">'<'</button>
+      <div class="slider-box">
+        <div class="slider-content" #sliderContentId>
+          <a href="#"><img src="https://placeimg.com/640/480/any"></a>
+          <a href="#"><img src="https://placeimg.com/640/480/any"></a>
+          <a href="#"><img src="https://placeimg.com/640/480/any"></a>
         </div>
       </div>
-      <button class="next">'>'</button>
+      <button class="next" (click)="slideTo('right')">'>'</button>
     </div>
+
     <div class="div4Inside">
 
     </div>
