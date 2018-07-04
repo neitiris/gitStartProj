@@ -10,7 +10,6 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UnknownComponent } from './pages/unknown/unknown.component';
-
 @NgModule({
   declarations: [
     AppComponent,
