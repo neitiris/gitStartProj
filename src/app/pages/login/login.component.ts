@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
           if (user && user.token) {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
-
           return user;
         },
         (err: any) => {
