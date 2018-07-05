@@ -9,6 +9,10 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UnknownComponent } from './pages/unknown/unknown.component';
+import { ApiService } from './services/';
+import  {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +24,11 @@ import { UnknownComponent } from './pages/unknown/unknown.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ApproutingModule
+    ApproutingModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
