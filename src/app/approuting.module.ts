@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   { path: 'home', component: pages.HomeComponent },
   { path: 'about', component: pages.AboutComponent },
   { path: 'unknown', component: pages.UnknownComponent },
+  { path: 'userside', component: pages.UsersideComponent }
 ];
 
 @NgModule({

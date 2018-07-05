@@ -10,8 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UnknownComponent } from './pages/unknown/unknown.component';
 import { ApiService } from './services/';
-import  {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
+import { UsersideComponent } from './pages/userside/userside.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpModule} from '@angular/http';
     AboutComponent,
     HomeComponent,
     LoginComponent,
-    UnknownComponent
+    UnknownComponent,
+    UsersideComponent
   ],
   imports: [
     BrowserModule,
