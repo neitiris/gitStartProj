@@ -14,7 +14,7 @@
       <li class="panel ">
         <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
           UI Elements
-        <span class="label label-default">10</span></a>
+          <span class="label label-default">10</span></a>
         <ul class="collapse">
           <li class=""><a href="#"> Buttons </a></li>
           <li class=""><a href="#"> Icons </a></li>
@@ -30,7 +30,7 @@
       </li>
       <li class="panel">
         <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#pagesr-nav">
-            <p class="icon-table"></p> Pages
+          <p class="icon-table"></p> Pages
           <span class="label label-info">6</span></a>
         <ul class="collapse">
           <li><a href="#"> Calendar </a></li>
@@ -45,30 +45,23 @@
     </ul>
   </div>
   <div class="center">
-    <div class="table-box">
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Company</th>
-            <th>Created</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of usersList">
-            <td>{{item.id}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.companyName}}</td>
-            <td>{{item.createdAt}}</td>
-            <td><button id="editId{{item.id}}"><i class="fas fa-edit"></i></button></td>
-          </tr>
-        </tbody>
-      </table>
-
+    <div id="changes">
+      <ul>
+        <li><h3>First Name</h3>
+          <input type="text" name="" id="">
+        </li>
+        <li>
+          <h3>Last Name</h3>
+          <input type="text" id="">
+        </li>
+        <li>
+          <h3>Email</h3>
+          <input type="text" id="">
+        </li>
+        <button id="backMenu">Back</button>
+        <button id="saveNpush">Update</button>
+        <button id="deleteUser">Delete</button>
+      </ul>
     </div>
   </div>
   <div class="rc">

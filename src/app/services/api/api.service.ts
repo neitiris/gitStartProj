@@ -15,7 +15,7 @@ export class ApiService implements OnInit {
   public headers: Headers = new Headers({});
 
   protected apiUrl = 'https://progress-board-server.herokuapp.com/api/';
-  protected prefix = 'v1/';
+  protected prefix = 'v1';
   protected endpoint: string = this.apiUrl + this.prefix;
 
   constructor(
@@ -27,6 +27,11 @@ export class ApiService implements OnInit {
       'Accept': 'application/json',
       'Content-type': 'application/json'
     });
+  }
+
+  public getCurrentUser() {
+    const userString: string = localStorage.getItem('currentUser');
+    return typeof userString === 'string' ? JSON.parse(userString) : {};
   }
 
   public get(path: string): Observable<any> {
@@ -64,26 +69,13 @@ export class ApiService implements OnInit {
       .pipe(catchError(this.catchErr))
       .pipe(map(this.getJson));
   }
-
-  /**
-   * Set request headers
-   * @param headers
-   */
   public setHeaders(headers) {
     Object.keys(headers)
       .forEach((header: any) => this.headers.set(header, headers[header]));
   }
 
-  /**
-   * Get json parsed response _body
-   * @param {Response} resp
-   * @returns {Response}
-   */
   public getJson(resp: Response) {
     const r: any = _.clone(resp);
-    /**
-     * Handle empty _body response
-     */
     return r && r._body && r._body.length ? resp.json() : resp;
   }
 
@@ -114,10 +106,15 @@ export class ApiService implements OnInit {
   }
 
   protected getDefaultOptions(optionalHeaders?: any): RequestOptions {
-    const headers: any = new Headers(optionalHeaders || {
+    const appUser: any = this.getCurrentUser();
+    const headersObj: any = {
       'Accept': 'application/json',
       'Content-type': 'application/json'
-    });
+    };
+    if (appUser && appUser.authToken) {
+      headersObj.Authorization = 'Bearer ' + appUser.authToken;
+    }
+    const headers: any = new Headers(optionalHeaders || headersObj);
     return new RequestOptions({ headers });
   }
 }

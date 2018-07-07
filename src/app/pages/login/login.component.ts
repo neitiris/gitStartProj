@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Router } from '@angular/router';
 import { IAuthData } from '../../shared/interfaces';
 import { ApiService } from '../../services/';
 
@@ -10,8 +11,10 @@ import { ApiService } from '../../services/';
 })
 export class LoginComponent implements OnInit {
   public user: IAuthData = {email: '', password: ''};
-  constructor(private api: ApiService) {
-  }
+  constructor(
+    private api: ApiService,
+    private router: Router,
+  ) {}
   public ngOnInit() {
     console.log('LoginComponent inited');
   }
@@ -21,8 +24,10 @@ export class LoginComponent implements OnInit {
     if (data.email && data.password) {
       this.api.post('signin', {email: data.email, password: data.password}).subscribe(
         (user) => {
-          if (user && user.token) {
-            localStorage.setItem('authToken', JSON.stringify(user));
+          if (user && user.data && user.data.authToken) {
+            localStorage.setItem('currentUser', JSON.stringify(user.data));
+            console.log(localStorage.getItem('currentUser'));
+            this.router.navigate([ '', 'userside' ]);
           }
           return user;
         },
@@ -33,4 +38,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-

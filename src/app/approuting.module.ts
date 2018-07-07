@@ -8,7 +8,8 @@ const appRoutes: Routes = [
   { path: 'home', component: pages.HomeComponent },
   { path: 'about', component: pages.AboutComponent },
   { path: 'unknown', component: pages.UnknownComponent },
-  { path: 'userside', component: pages.UsersideComponent }
+  { path: 'userside', component: pages.UsersideComponent },
+  { path: 'useredit', component: pages.UserchangeComponent}
 ];
 
 @NgModule({

@@ -9,10 +9,11 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UnknownComponent } from './pages/unknown/unknown.component';
-import { ApiService } from './services/';
+import { ApiService, UserService } from './services/';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { UsersideComponent } from './pages/userside/userside.component';
+import { UserchangeComponent } from './pages/userchange/userchange.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UsersideComponent } from './pages/userside/userside.component';
     HomeComponent,
     LoginComponent,
     UnknownComponent,
-    UsersideComponent
+    UsersideComponent,
+    UserchangeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,11 @@ import { UsersideComponent } from './pages/userside/userside.component';
     HttpModule,
     HttpClientModule
   ],
-  providers: [ApiService, HttpClientModule],
+  providers: [
+    HttpClientModule,
+    ApiService,
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
