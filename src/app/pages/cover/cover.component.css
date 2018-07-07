@@ -1,0 +1,5 @@
+.center{
+  display: flex;
+  padding-top: 3%;
+  justify-content: center;
+}

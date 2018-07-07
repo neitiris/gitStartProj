@@ -11,7 +11,7 @@
       <h3>Email</h3>
       <input disabled type="email" name="email" [(ngModel)]="user.email">
     </li>
-    <button id="backMenu">Back</button>
+    <button id="backMenu" (click)="goBack()">Back</button>
     <button id="saveNpush">Update</button>
     <button id="deleteUser">Delete</button>
   </ul>

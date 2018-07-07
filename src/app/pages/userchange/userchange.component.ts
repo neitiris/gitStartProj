@@ -25,11 +25,6 @@ export class UserchangeComponent implements OnInit {
       }
     });
   }
-
-  public userSettings(){
-    // getUserById()
-  }
-
   public requestUser(id: any) {
     if (id) {
       this._user.getUserById(id).subscribe(
@@ -44,6 +39,9 @@ export class UserchangeComponent implements OnInit {
         }
       );
     }
+  }
+  public goBack() {
+    this.router.navigate(['', 'userside']);
   }
 }
 
