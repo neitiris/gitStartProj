@@ -9,7 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor(
+    constructor(
   ) {}
 
   public ngOnInit() {

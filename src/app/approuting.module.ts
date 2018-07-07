@@ -3,13 +3,19 @@ import {RouterModule, Routes} from '@angular/router';
 import * as pages from './pages/';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: '',
+    component: pages.CoverComponent,
+    children: [
+      { path: 'useredit/:id', component: pages.UserchangeComponent},
+      { path: 'userside', component: pages.UsersideComponent }
+    ]
+  },
   { path: 'login', component: pages.LoginComponent },
-  { path: 'home', component: pages.HomeComponent },
   { path: 'about', component: pages.AboutComponent },
-  { path: 'unknown', component: pages.UnknownComponent },
-  { path: 'userside', component: pages.UsersideComponent },
-  { path: 'useredit', component: pages.UserchangeComponent}
+  { path: 'home', component: pages.HomeComponent },
+  { path: 'unknown', component: pages.UnknownComponent }
 ];
 
 @NgModule({

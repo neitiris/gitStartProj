@@ -142,8 +142,12 @@ tr td{
   padding: 5px;
 }
 tr td button{
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 23px;
   border: none;
-  background: transparent;
+  background: #428bca;
+  border-radius: 6px;
+  color: white;
+  padding: 4px;
+  font-size: 17px;
 }

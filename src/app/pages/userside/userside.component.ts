@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-side',
@@ -7,11 +8,11 @@ import { UserService } from '../../services/';
   styleUrls: ['./userside.component.css']
 })
 export class UsersideComponent implements OnInit {
-
   public usersList: any[] = [];
-  public usersListString: string = '';
+  public usersListString = '';
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService,
+              private router: Router) {}
 
   public  ngOnInit() {
     this.getUsers();
@@ -29,5 +30,8 @@ export class UsersideComponent implements OnInit {
         console.log('err', err);
       },
     );
+  }
+  public goToDetails(id) {
+    this.router.navigate(['', 'useredit', id]);
   }
 }

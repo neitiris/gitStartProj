@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   public authenticate(data: IAuthData) {
     console.log('data', data);
     if (data.email && data.password) {
-      this.api.post('signin', {email: data.email, password: data.password}).subscribe(
+      this.api.post('/signin', {email: data.email, password: data.password}).subscribe(
         (user) => {
           if (user && user.data && user.data.authToken) {
             localStorage.setItem('currentUser', JSON.stringify(user.data));
