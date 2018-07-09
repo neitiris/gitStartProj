@@ -8,6 +8,7 @@
       <th>Company</th>
       <th>Created</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -17,9 +18,14 @@
       <td>{{item.email}}</td>
       <td>{{item.companyName}}</td>
       <td>{{item.createdAt}}</td>
-      <td><button id="editId{{item.id}}" (click)="goToDetails(this.item.id)">
+      <td><button class="editCl" (click)="goToDetails(this.item.id)">
         <i class="fa fa-edit"></i></button></td>
-    </tr>
+      <!--<td><button class="deleteCl" (click)="deleteUserData(this.item.id)" >-->
+        <!--<i class="fa fa-trash"></i></button></td>-->
+    <!--</tr>-->
     </tbody>
   </table>
+  <button id="createU" (click)="createUser()">Create User</button>
+  <button id="delU" >Delete Marked Users</button>
+  <button id="mU" >Some Cagic</button>
 </div>

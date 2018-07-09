@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-cover',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoverComponent implements OnInit {
 
-  constructor() {}
+  constructor( public router: Router) { }
 
   public  ngOnInit() {
     console.log('Cover init.');
+  }
+  public logOutFunk() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/home']);
   }
 }

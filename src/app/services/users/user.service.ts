@@ -15,8 +15,25 @@ export class UserService {
    * Get list of users
    * @returns {Observable<any>}
    */
-  public getUsers(): Observable<any> {
-    return this.api.get(`${this.path}`);
+  public getUsers(params?: string): Observable<any> {
+    return this.api.get(`${this.path}${params || ''}`);
+  }
+
+  public createNewUser(user: any) {
+    return this.api.post(`${this.path}`, user);
+  }
+
+  public updateUser(user: any, userId: number) {
+    return this.api.put(`${this.path}/${userId}`, user);
+  }
+
+  /**
+   * Delete user by id
+   * @param {number} id
+   * @returns {Observable<any>}
+   */
+  public deleteUser(id: number) {
+    return this.api.delete(`${this.path}/${id}`);
   }
 
   /**

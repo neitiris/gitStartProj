@@ -19,7 +19,8 @@ export class UsersideComponent implements OnInit {
   }
 
   public getUsers() {
-    this.userService.getUsers().subscribe(
+    const urlParams = '?page=1&limit=50';
+    this.userService.getUsers(urlParams).subscribe(
       (resp: any) => {
         console.log('getUsers resp', resp);
         this.usersList = resp.rows;
@@ -33,5 +34,8 @@ export class UsersideComponent implements OnInit {
   }
   public goToDetails(id) {
     this.router.navigate(['', 'useredit', id]);
+  }
+  public createUser() {
+    this.router.navigate(['', 'useredit', 'newUser']);
   }
 }

@@ -1,4 +1,7 @@
 import {Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
+import { Router } from '@angular/router';
+import { IAuthData } from '../../shared/interfaces';
+import { ApiService } from '../../services/';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +12,7 @@ import {Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angu
 export class HomeComponent implements OnInit {
   // @ViewChild(sliderBox) slides: Slides;
   @ViewChild('sliderContentId') public sliderContent: ElementRef;
+  public logged = false;
 
   public items: any[] = [
     { text: '22 Syncmaster LCD Monitor', cost: '$399.99', img: 'http://demo.templates-master.com/demo01/media/catalog/' +
@@ -40,15 +44,14 @@ export class HomeComponent implements OnInit {
   //   window.scrollBy(-100, 0);
   //   console.log('myFunctionlinus');
   // }
-  constructor() { }
-
+  public user: IAuthData = {email: '', password: ''};
+  constructor(
+    private api: ApiService,
+    private router: Router,
+  ) {}
   public ngOnInit() {
-    console.log('Home inited');
-  }
-
-  public ngAfterViewInit() {
-    // This is how you should debug if you have access to this element!
-    console.log('ngAfterViewInit this.sliderContent', this.sliderContent);
+    console.log('LoginComponent inited');
+    this.userloggedin();
   }
 
   public slideTo(direction: string) {
@@ -62,5 +65,34 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-
+  public authenticate(data: IAuthData) {
+    console.log('data', data);
+    if (data.email && data.password) {
+      this.api.post('/signin', {email: data.email, password: data.password}).subscribe(
+        (user) => {
+          if (user && user.data && user.data.authToken) {
+            localStorage.setItem('currentUser', JSON.stringify(user.data));
+            console.log(localStorage.getItem('currentUser'));
+            this.router.navigate([ '', 'home' ]);
+            location.reload();
+          }
+          return user;
+        },
+        (err: any) => {
+          console.log('err', err);
+        }
+      );
+    }
+  }
+  public userloggedin() {
+    if (localStorage.getItem('currentUser')) {
+      this.logged = true;
+      this.user = JSON.parse(localStorage.getItem('currentUser'));
+      console.log('Json', JSON.stringify(localStorage.getItem('currentUser')));
+    }
+  }
+  public logOutFunk() {
+    localStorage.removeItem('currentUser');
+    location.reload();
+  }
 }

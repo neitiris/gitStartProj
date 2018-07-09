@@ -15,7 +15,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { UsersideComponent } from './pages/userside/userside.component';
 import { UserchangeComponent } from './pages/userchange/userchange.component';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import {AdminGuard} from './services/authguard/admin-guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     LoginComponent,
     UnknownComponent,
     UserchangeComponent,
-    UsersideComponent
+    UsersideComponent,
   ],
   imports: [
     Angular2FontawesomeModule,
@@ -40,6 +41,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     HttpClientModule,
     ApiService,
     UserService,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import * as pages from './pages/';
+import {AdminGuard} from './services/authguard/admin-guard';
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -10,7 +11,8 @@ const appRoutes: Routes = [
     children: [
       { path: 'useredit/:id', component: pages.UserchangeComponent},
       { path: 'userside', component: pages.UsersideComponent }
-    ]
+    ],
+    canActivate: [AdminGuard]
   },
   { path: 'login', component: pages.LoginComponent },
   { path: 'about', component: pages.AboutComponent },
