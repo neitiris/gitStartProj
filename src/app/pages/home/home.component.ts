@@ -73,10 +73,10 @@ export class HomeComponent implements OnInit {
           if (user && user.data && user.data.authToken) {
             localStorage.setItem('currentUser', JSON.stringify(user.data));
             console.log(localStorage.getItem('currentUser'));
-            this.router.navigate([ '', 'home' ]);
-            location.reload();
+            this.user.email = user.data.email;
+            // this.router.navigate([ '', 'home' ]);
+            // location.reload();
           }
-          return user;
         },
         (err: any) => {
           console.log('err', err);
@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
       );
     }
   }
+
   public userloggedin() {
     if (localStorage.getItem('currentUser')) {
       this.logged = true;
@@ -93,6 +94,6 @@ export class HomeComponent implements OnInit {
   }
   public logOutFunk() {
     localStorage.removeItem('currentUser');
-    location.reload();
+    // location.reload();
   }
 }

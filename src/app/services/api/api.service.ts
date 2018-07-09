@@ -87,12 +87,33 @@ export class ApiService implements OnInit {
     } else if (resp.status === 401) {
       const error = new Error(resp.statusText);
       error['response'] = resp;
-      // Do any actions here, to handle 'Unauthorized'
-      throwError(error);
+      this.tryRefreshToken();
+      // throwError(error);
     } else {
       const error = new Error(resp.statusText);
       error['response'] = resp;
       throwError(error);
+    }
+  }
+
+  public tryRefreshToken() {
+    const userStr: any = localStorage.getItem('currentUser');
+    const userObj: any = userStr ? JSON.parse(userStr) : {};
+    if (userObj.refreshToken) {
+      this.post(`${this.prefix}/refresh_token`, { token: userObj.refreshToken }).subscribe(
+        (resp: any) => {
+          if (resp && resp.data) {
+            userObj.authToken = resp.data.authToken;
+            userObj.refreshToken = resp.data.refreshToken;
+            localStorage.setItem('currentUser', userObj);
+          }
+        },
+        (err: any) => {
+          // this.router.navigate([ '', 'home' ]);
+        }
+      );
+    } else {
+      // this.router.navigate([ '', 'home' ]);
     }
   }
 
