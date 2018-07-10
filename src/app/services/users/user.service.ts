@@ -19,10 +19,21 @@ export class UserService {
     return this.api.get(`${this.path}${params || ''}`);
   }
 
+  /**
+   * Create new user
+   * @param user
+   * @returns {Observable<any>}
+   */
   public createNewUser(user: any) {
     return this.api.post(`${this.path}`, user);
   }
 
+  /**
+   * Update user by id
+   * @param user
+   * @param {number} userId
+   * @returns {Observable<any>}
+   */
   public updateUser(user: any, userId: number) {
     return this.api.put(`${this.path}/${userId}`, user);
   }

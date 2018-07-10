@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth';
 
 @Component({
   selector: 'app-page-cover',
@@ -8,13 +9,13 @@ import {Router} from '@angular/router';
 })
 export class CoverComponent implements OnInit {
 
-  constructor( public router: Router) { }
+  constructor( public router: Router,
+               private authservice: AuthService) { }
 
   public  ngOnInit() {
     console.log('Cover init.');
   }
-  public logOutFunk() {
-    localStorage.removeItem('currentUser');
-    this.router.navigate(['/home']);
+  logOut() {
+    this.authservice.logOutFunk(); // Calling log out function from AuthService
   }
 }

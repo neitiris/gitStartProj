@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/';
-import {enableDebugTools} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-userchange',
@@ -21,7 +20,7 @@ export class UserchangeComponent implements OnInit {
     public router: Router,
     public _user: UserService
   ) { }
-
+  // Calling user datails function
   public ngOnInit() {
     console.log('ngOnInit this.route', this.route);
     this.route.params.subscribe((param: any) => {
@@ -30,6 +29,7 @@ export class UserchangeComponent implements OnInit {
       }
     });
   }
+  // request User by id from server
   public requestUser(id: any) {
     if (id) {
       this._user.getUserById(id).subscribe(
@@ -47,9 +47,11 @@ export class UserchangeComponent implements OnInit {
       );
     }
   }
+  // route to admin userside
   public goBack() {
     this.router.navigate(['', 'userside']);
   }
+  // Delete user data from backend
   public deleteUserData(id) {
     this._user.deleteUser(id).subscribe(
       (resp: any) => {
@@ -60,12 +62,7 @@ export class UserchangeComponent implements OnInit {
       }
     );
   }
-
-  public onChange() {
-    this.options.changed = !this.areEqual(this.user, this.userUnchanged);
-    const changedObj: any = this.getChanged(this.userUnchanged, this.user);
-    console.log('changedObj', changedObj);
-  }
+  // Function try to save changes or create user to backend
   public trySave(user: any) {
     if (user && user.id) {
       const changedUserData: any = this.getChanged(this.userUnchanged, this.user);
@@ -90,7 +87,12 @@ export class UserchangeComponent implements OnInit {
       );
     }
   }
-
+  // Function what create array with differense of unchanged data and changed
+  public onChange() {
+    this.options.changed = !this.areEqual(this.user, this.userUnchanged);
+    const changedObj: any = this.getChanged(this.userUnchanged, this.user);
+    console.log('changedObj', changedObj);
+  }
   private getChanged(unchanged: any, changed: any) {
     const diff: any = {};
     for (const prop in unchanged) {

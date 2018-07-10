@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private authservice: AuthService,
   ) {}
+  // Array with content of center blocks
   public items: any[] = [
     { text: '22 Syncmaster LCD Monitor', cost: '$399.99', img: 'http://demo.templates-master.com/demo01/media/catalog/' +
       'product/cache/6/small_image/135x135/9df78eab33525d08d6e5fb8d27136e95/2/2/22-syncmaster-lcd-monitor.jpg'},
@@ -37,21 +38,12 @@ export class HomeComponent implements OnInit {
     { text: '22 Syncmaster LCD Monitor', cost: '$399.99', img: 'http://demo.templates-master.com/demo01/media/catalog/' +
       'product/cache/6/small_image/135x135/9df78eab33525d08d6e5fb8d27136e95/2/2/22-syncmaster-lcd-monitor.jpg'},
   ];
-
-  // FUNCTIONS SHOULD BE WRITTEN ONLY AFTER 'constructor'!!!!
-  // public myFunctionplus() {
-  //   sliderContent.scrollBy(100, 0);
-  //   console.log('myFunctionplus');
-  // }
-  // public myFunctionminus() {
-  //   window.scrollBy(-100, 0);
-  //   console.log('myFunctionlinus');
-  // }
+  // Calling userloggedin from Auth Service
   public ngOnInit() {
     console.log('LoginComponent inited');
     this.authservice.userloggedin();
   }
-
+  // Activating buttons right/left in sliceshow
   public slideTo(direction: string) {
     const currentLeft: number = this.sliderContent.nativeElement.offsetLeft || 0;
     switch (direction) {
@@ -63,12 +55,15 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
+  // Calling Exit function from AuthService
   quit() {
     this.authservice.logOutFunk();
   }
+  // Calling boolean status variable logged from AuthService
   lLogged() {
     return this.authservice.logged;
   }
+  // Calling authorisation function from AuthService
   auth(user) {
     this.authservice.authenticate(user);
   }

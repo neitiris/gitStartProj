@@ -18,6 +18,7 @@ export class UsersideComponent implements OnInit {
     this.getUsers();
   }
 
+  // request to backend for users list
   public getUsers() {
     const urlParams = '?page=1&limit=50';
     this.userService.getUsers(urlParams).subscribe(
@@ -32,9 +33,11 @@ export class UsersideComponent implements OnInit {
       },
     );
   }
+  // Route to userEdit by id
   public goToDetails(id) {
     this.router.navigate(['', 'useredit', id]);
   }
+  // Route to userEdit for create User
   public createUser() {
     this.router.navigate(['', 'useredit', 'newUser']);
   }

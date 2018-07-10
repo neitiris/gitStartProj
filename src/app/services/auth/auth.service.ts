@@ -12,6 +12,7 @@ export class AuthService {
     private api: ApiService,
     private router: Router,
   ) {}
+  // Authenticate function
   public authenticate(data: IAuthData) {
     console.log('data', data);
     if (data.email && data.password) {
@@ -21,8 +22,6 @@ export class AuthService {
             localStorage.setItem('currentUser', JSON.stringify(user.data));
             console.log(localStorage.getItem('currentUser'));
             this.user.email = user.data.email;
-            // this.router.navigate([ '', 'home' ]);
-            // location.reload();
           }
         },
         (err: any) => {
@@ -31,7 +30,7 @@ export class AuthService {
       );
     }
   }
-
+  // Checking for login User
   public userloggedin() {
     if (localStorage.getItem('currentUser')) {
       this.logged = true;
@@ -39,9 +38,8 @@ export class AuthService {
       console.log('Json', JSON.stringify(localStorage.getItem('currentUser')));
     }
   }
+  // log out func, delete user from storage
   public logOutFunk() {
     localStorage.removeItem('currentUser');
-    // location.reload();
   }
-
 }

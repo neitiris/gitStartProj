@@ -1,4 +1,6 @@
+<!--Menu of Create/Change of Users-->
 <div id="changes">
+  <!--Left Column-->
   <ul>
     <li><h3>First Name</h3>
       <input type="text" name="firstName" [(ngModel)]="user.firstName" (keyup)="onChange()">
@@ -29,8 +31,10 @@
     <button *ngIf="!options.isNew" id="deleteUser" (click)="deleteUserData(user.id)">Delete</button>
 
   </ul>
-  <ul>
+  <!--End Left Column-->
 
+  <!--Right Column-->
+  <ul>
     <li>
       <h3>Last Name</h3>
       <input type="text" name="lastName" [(ngModel)]="user.lastName" (keyup)="onChange()">
@@ -58,4 +62,6 @@
       <div *ngIf="user.password && options.passwordConfirm && (user.password !== options.passwordConfirm)">Password and confirm password don't match!</div>
     </li>
   </ul>
+  <!--End of Right Column-->
 </div>
+<!--End of Menu of Create/Change of Users-->

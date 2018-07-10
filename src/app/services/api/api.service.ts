@@ -28,19 +28,19 @@ export class ApiService implements OnInit {
       'Content-type': 'application/json'
     });
   }
-
+// Request currect user from server
   public getCurrentUser() {
     const userString: string = localStorage.getItem('currentUser');
     return typeof userString === 'string' ? JSON.parse(userString) : {};
   }
-
+// GET func
   public get(path: string): Observable<any> {
     return this.http.get(`${this.endpoint}${path}`, this.getDefaultOptions())
       .pipe(map(this.checkForError))
       .pipe(catchError(this.catchErr))
       .pipe(map(this.getJson));
   }
-
+// POST func
   public post(path: string, body: any, options?: any): Observable<any> {
     return this.http.post(
       `${this.endpoint}${path}`,
@@ -51,7 +51,7 @@ export class ApiService implements OnInit {
       .pipe(catchError(this.catchErr))
       .pipe(map(this.getJson));
   }
-
+// PUT func
   public put(path: string, body: any): Observable<any> {
     return this.http.put(
       `${this.endpoint}${path}`,
@@ -62,23 +62,24 @@ export class ApiService implements OnInit {
       .pipe(catchError(this.catchErr))
       .pipe(map(this.getJson));
   }
-
+// DELETE func
   public delete(path: string): Observable<any> {
     return this.http.delete(`${this.endpoint}${path}`, this.getDefaultOptions())
       .pipe(map(this.checkForError))
       .pipe(catchError(this.catchErr))
       .pipe(map(this.getJson));
   }
-  public setHeaders(headers) {
-    Object.keys(headers)
-      .forEach((header: any) => this.headers.set(header, headers[header]));
-  }
 
+  // public setHeaders(headers) {
+  //   Object.keys(headers)
+  //     .forEach((header: any) => this.headers.set(header, headers[header]));
+  // }
+  //
   public getJson(resp: Response) {
     const r: any = _.clone(resp);
     return r && r._body && r._body.length ? resp.json() : resp;
   }
-
+  // Checking Error function /refresh
   public checkForError(resp: Response): Response {
     if (resp.status >= 500) {
       return resp;
@@ -95,7 +96,7 @@ export class ApiService implements OnInit {
       throwError(error);
     }
   }
-
+  // Function Refresh token
   public tryRefreshToken() {
     const userStr: any = localStorage.getItem('currentUser');
     const userObj: any = userStr ? JSON.parse(userStr) : {};
@@ -116,7 +117,7 @@ export class ApiService implements OnInit {
       // this.router.navigate([ '', 'home' ]);
     }
   }
-
+  // if Error
   public catchErr(err: any) {
     if (err && err._body && typeof err._body === 'string') {
       const errBody: any = JSON.parse(err._body);
@@ -125,7 +126,7 @@ export class ApiService implements OnInit {
     }
     return Observable.throw(err);
   }
-
+// Bearer Func
   protected getDefaultOptions(optionalHeaders?: any): RequestOptions {
     const appUser: any = this.getCurrentUser();
     const headersObj: any = {
@@ -133,7 +134,7 @@ export class ApiService implements OnInit {
       'Content-type': 'application/json'
     };
     if (appUser && appUser.authToken) {
-      headersObj.Authorization = 'Bearer ' + appUser.authToken;
+      headersObj.Authorization = ' ' + appUser.authToken;
     }
     const headers: any = new Headers(optionalHeaders || headersObj);
     return new RequestOptions({ headers });

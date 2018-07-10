@@ -1,5 +1,14 @@
+<!--**************************
+      Home page template
+***************************-->
+
+<!--div over of page-->
 <div class="container1">
+
+  <!--Top line block-->
   <div class="onTopOfTheWorld">
+
+    <!--Top Line 1 with navigation and bucket-->
     <div id="topLine1">
       <p>Default Message: </p>
       <ul class="line">
@@ -7,25 +16,28 @@
         <li><a href="/userside">Admin Page</a> | </li>
         <li><a href="#">My Cart</a> | </li>
         <li><a href="#">Checkout</a> | </li>
-        <li *ngIf="!lLogged()"><a href="home/#windLog" class="button button-green">Log In</a></li>
+        <li *ngIf="!lLogged()"><a href="home" class="button button-green">Log In</a></li>
         <li *ngIf="user.email && lLogged()" class="hell"><p class="helloLog">Welcome {{ user.email }}</p></li>
         <li *ngIf="lLogged()"><button id="logOut" (click)="quit()">Log Out</button></li>
       </ul>
 
       <div class="position-absolute">
-        <a href="home/#close" class="overlay" id="windLog"></a>
+        <a href="home/" class="overlay" id="windLog"></a>
         <div class="popup">
           <h1>Site Idea</h1>
           <h2>Sing in</h2>
           <input type="email" class="lInput" [(ngModel)]="user.email"  placeholder="Email" name="email">
           <input type="password" class="lInput" [(ngModel)]="user.password" placeholder="Password" name="password">
           <button class="submit" (click)="auth(user)">Sign In</button>
-          <a class="close"title="Закрыть" href="home/#close"></a>
+          <a class="close"title="Закрыть" href="home/"></a>
         </div>
       </div>
 
       <div class="bucket">Your bucket is empty</div>
     </div>
+    <!--End of TopLine1-->
+
+    <!--Top Line2 with Logo and Contact data-->
     <div id="topLine2">
       <img src="http://demo.templates-master.com/demo01/skin/frontend/default/a003/images/logo.gif">
       <div class="contact">
@@ -34,6 +46,9 @@
         <p>Toll-Free: 1-800-000-0000</p>
       </div>
     </div>
+    <!--End of TopLine2-->
+
+    <!--Top Line 3 with second navBar-->
     <div id="topLine3">
       <ul class="line2">
         <li><a href="#">Home</a></li>
@@ -47,18 +62,9 @@
         <button>Go</button>
       </div>
     </div>
-    <!--     <div id="div4">
-          <button class="previous" (click)="myFunctionminus()">'<'</button>
-          <div class="sliderBox">
-            <div class="sliderContent">
-              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
-              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
-              <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""></a>
-            </div>
-          </div>
-          <button class="next" (click)="myFunctionplus()">'>'</button>
-        </div> -->
+    <!--End of Top Line 3-->
 
+    <!--SlideShow Block-->
     <div id="div4">
       <button class="previous" (click)="slideTo('left')">'<'</button>
       <div class="slider-box">
@@ -70,16 +76,23 @@
       </div>
       <button class="next" (click)="slideTo('right')">'>'</button>
     </div>
+    <!--End of SlideShow Block-->
 
-    <div class="div4Inside">
-
-    </div>
+    <!--Gray line with actions about Slideshow-->
     <div id="topLine4">
       <p><span class="bold">SAVE25$</span> ON ALL ORDERS OVER 100$ <span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Pwl8rq9MfiXOeA4FBf0hS6THUhHpVaRelGWf1XLk0U4epNxkjg" alt=""></span>WITH CODE <span class="bold">PROMO25OFF</span></p>
     </div>
   </div>
+  <!--End of gray Line-->
+
+  <!--End of top block-->
+
+  <!--Center colums div block-->
   <div id="threeColums">
+
+    <!--LeftBar Nav-->
     <div class="column1">
+      <!--Left Nav-->
       <div class="categories">
         <h3>Categories</h3>
         <ul>
@@ -122,44 +135,74 @@
           </li>
         </ul>
       </div>
+      <!--End Left Nav-->
+      <!--Some blocks with inf-->
       <div class="popular">
         <h3>Popular products</h3>
         <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""><p>Argus QC-2185 Quick Click 5MP Digital Camera</p></a><br><span class="cost">$37.49</span>
         <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""><p>Argus QC-2185 Quick Click 5MP Digital Camera</p></a><br><span class="cost">$37.49</span>
         <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt=""><p>Argus QC-2185 Quick Click 5MP Digital Camera</p></a><br><span class="cost">$37.49</span>
       </div>
+      <!--End of some blocks-->
     </div>
+    <!--End LeftBar Nav-->
+
+    <!--Center Blocks-->
     <div class="column2">
       <div class="block" *ngFor="let item of items">
         <a href="#"><img src="{{item.img}}" alt="">{{item.text}}<h4>{{item.cost}}</h4></a>
       </div>
     </div>
+    <!--End of center Blocks-->
+
+    <!--Right Column-->
     <div class="column3">
+      <!--Bucket block-->
       <div>
         <h3>My Cart</h3>
         <p>You have no items in your shopping cart.</p>
       </div>
+      <!--Bucket block-->
+
+      <!--Compare Block-->
       <div>
         <h3>Compare Product</h3>
         <p>You have no items to compare.</p>
       </div>
+      <!--End of Compare block-->
+
+      <!--Content block-->
       <div class="featured">
         <h3>Featured Products</h3>
         <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt="">HTC Touch Diamond</a><br><span class="cost">$37.49</span>
         <a href="#"><img src="http://jiayu.com.ua/images/sma_sku495911.jpg" alt="">HTC Touch Diamond</a><br><span class="cost">$37.49</span>
       </div>
+      <!--End of Content block-->
+
+      <!--Subscribe block-->
       <div class="subsc">
         <h3>New Settler</h3>
         <p>Sign up for our newsletter:</p>
         <input type="text" name="sub" id="sub">
         <button>Subscribe</button>
       </div>
-      <div class="image"></div>
-    </div>
-  </div>
+      <!--End of subscribe block-->
 
+      <!--Image-->
+      <div class="image"></div>
+      <!--End of Image-->
+    </div>
+    <!--End of Right Column-->
+  </div>
+  <!--End of Center blocks-->
+
+  <!--Bottom Block-->
   <div id="bottom">
+    <!--Image PaySystems-->
     <div class="bImg"><img src="http://demo.templates-master.com/demo01/skin/frontend/default/a003/images/payments.gif" alt=""></div>
+    <!--End Image PaySystems-->
+
+    <!--Bottom Nav-->
     <div class="bMenu">
       <ul class="line2">
         <li>
@@ -182,6 +225,10 @@
         </li>
       </ul>
     </div>
+    <!--End of Bottom Nav-->
+
+    <!--Copyryght-->
     <p class="copyright">© 2008 Magento Demo Store. All Rights Reserved.</p>
   </div>
+  <!--Bottom Block-->
 </div>

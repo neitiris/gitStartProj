@@ -1,10 +1,18 @@
+<!--****************************
+      UserSide Cover HTML
+**********************************-->
+
+<!--Top Line-->
 <div class="top">
   <nav class="navbar">
     <a href="#"><img src="assets/img/logoadmin.png" alt=""></a>
-    <button id="lOTop" (click)='logOutFunk()'>Log Out</button>
+    <button id="lOTop" (click)='logOut()'>Log Out</button>
   </nav>
 </div>
+
+<!--Container Right and Left columns-->
 <div class="container">
+  <!--Left Column-->
   <div class="lc">
     <ul id="menu" class="collapse">
       <li class="panel active">
@@ -45,9 +53,11 @@
       <!--<li><a href="/login"><p class="icon-signin"></p> Login Page </a></li>-->
     </ul>
   </div>
+  <!--Center block userside/userchange input-->
   <div class="center">
     <router-outlet></router-outlet>
   </div>
+  <!--Right Column-->
   <div class="rc">
     <div id="right">
       <div class="very-small">
@@ -69,6 +79,7 @@
     </div>
   </div>
 </div>
+<!--Bottom-->
 <div class="bottom">
   <a href="#">someBottom</a>
 </div>
