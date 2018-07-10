@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
-import { Router } from '@angular/router';
-import { IAuthData } from '../../shared/interfaces';
-import { ApiService } from '../../services/';
+import {AuthService} from '../../services/auth';
+import {Router} from '@angular/router';
+import {IAuthData} from '../../shared/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +12,11 @@ import { ApiService } from '../../services/';
 export class HomeComponent implements OnInit {
   // @ViewChild(sliderBox) slides: Slides;
   @ViewChild('sliderContentId') public sliderContent: ElementRef;
-  public logged = false;
-
+  public user: IAuthData = {email: '', password: ''};
+  constructor(
+    private router: Router,
+    private authservice: AuthService,
+  ) {}
   public items: any[] = [
     { text: '22 Syncmaster LCD Monitor', cost: '$399.99', img: 'http://demo.templates-master.com/demo01/media/catalog/' +
       'product/cache/6/small_image/135x135/9df78eab33525d08d6e5fb8d27136e95/2/2/22-syncmaster-lcd-monitor.jpg'},
@@ -44,14 +47,9 @@ export class HomeComponent implements OnInit {
   //   window.scrollBy(-100, 0);
   //   console.log('myFunctionlinus');
   // }
-  public user: IAuthData = {email: '', password: ''};
-  constructor(
-    private api: ApiService,
-    private router: Router,
-  ) {}
   public ngOnInit() {
     console.log('LoginComponent inited');
-    this.userloggedin();
+    this.authservice.userloggedin();
   }
 
   public slideTo(direction: string) {
@@ -65,35 +63,13 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-  public authenticate(data: IAuthData) {
-    console.log('data', data);
-    if (data.email && data.password) {
-      this.api.post('/signin', {email: data.email, password: data.password}).subscribe(
-        (user) => {
-          if (user && user.data && user.data.authToken) {
-            localStorage.setItem('currentUser', JSON.stringify(user.data));
-            console.log(localStorage.getItem('currentUser'));
-            this.user.email = user.data.email;
-            // this.router.navigate([ '', 'home' ]);
-            // location.reload();
-          }
-        },
-        (err: any) => {
-          console.log('err', err);
-        }
-      );
-    }
+  quit() {
+    this.authservice.logOutFunk();
   }
-
-  public userloggedin() {
-    if (localStorage.getItem('currentUser')) {
-      this.logged = true;
-      this.user = JSON.parse(localStorage.getItem('currentUser'));
-      console.log('Json', JSON.stringify(localStorage.getItem('currentUser')));
-    }
+  lLogged() {
+    return this.authservice.logged;
   }
-  public logOutFunk() {
-    localStorage.removeItem('currentUser');
-    // location.reload();
+  auth(user) {
+    this.authservice.authenticate(user);
   }
 }
